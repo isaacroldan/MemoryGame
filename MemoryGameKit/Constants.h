@@ -11,3 +11,7 @@
 
 
 #endif /* Constants_h */
+
+static NSString *const clientID = @"9a022cf51c0bedac0ccfa27043f879d2";
+#define resolveEndpoint @"https://api.soundcloud.com/resolve?url=%@&client_id=%@" // Permalink and ClientID
+#define tracksEndpoint @"https://api.soundcloud.com/users/%@/tracks?client_id=%@" // User identifier and ClientID

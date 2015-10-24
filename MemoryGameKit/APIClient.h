@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface APIClient : NSObject
-
++ (RACSignal *)resolveFromPermalink:(NSString *)permalink;
++ (RACSignal *)fetchTracksForUser:(NSNumber *)userID;
 @end
