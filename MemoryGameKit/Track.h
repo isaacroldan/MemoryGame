@@ -1,0 +1,19 @@
+//
+//  Track.h
+//  MemoryGame
+//
+//  Created by Isaac Roldán Armengol on 24/10/15.
+//  Copyright © 2015 Isaac. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface Track : NSObject
+
+@property (nonatomic, strong) NSNumber *trackID;
+@property (nonatomic, strong) NSNumber *userID;
+@property (nonatomic, strong) NSString *artworkUrl;
+
++ (id)trackWithDictionary:(NSDictionary *)dictionary;
+
+@end
