@@ -15,6 +15,16 @@
 		6A0192D11BDBB8E800F05770 /* MemoryGameKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0192D01BDBB8E800F05770 /* MemoryGameKitTests.m */; };
 		6A0192D51BDBB8E800F05770 /* MemoryGameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0192C01BDBB8E800F05770 /* MemoryGameKit.framework */; };
 		6A0192D61BDBB8E800F05770 /* MemoryGameKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0192C01BDBB8E800F05770 /* MemoryGameKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6A0192E01BDBC7E300F05770 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0192DF1BDBC7E300F05770 /* ReactiveCocoa.framework */; };
+		6A0192E41BDBC83B00F05770 /* APIClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A0192E21BDBC83B00F05770 /* APIClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A0192E51BDBC83B00F05770 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0192E31BDBC83B00F05770 /* APIClient.m */; settings = {ASSET_TAGS = (); }; };
+		6A0192E71BDBCE2400F05770 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A0192E61BDBCE2400F05770 /* Constants.h */; settings = {ASSET_TAGS = (); }; };
+		6A0192EA1BDBD18200F05770 /* Track.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A0192E81BDBD18200F05770 /* Track.h */; settings = {ASSET_TAGS = (); }; };
+		6A0192EB1BDBD18200F05770 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0192E91BDBD18200F05770 /* Track.m */; settings = {ASSET_TAGS = (); }; };
+		6A0192EC1BDBDF5300F05770 /* MemoryGameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0192C01BDBB8E800F05770 /* MemoryGameKit.framework */; };
+		6A0192ED1BDBE28900F05770 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0192DF1BDBC7E300F05770 /* ReactiveCocoa.framework */; };
+		6A0192F11BDBEA0600F05770 /* User.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A0192EF1BDBEA0600F05770 /* User.h */; settings = {ASSET_TAGS = (); }; };
+		6A0192F21BDBEA0600F05770 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0192F01BDBEA0600F05770 /* User.m */; settings = {ASSET_TAGS = (); }; };
 		6A513EBA1BDBB85400C396CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A513EB91BDBB85400C396CC /* main.m */; };
 		6A513EBD1BDBB85400C396CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A513EBC1BDBB85400C396CC /* AppDelegate.m */; };
 		6A513EC01BDBB85400C396CC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A513EBF1BDBB85400C396CC /* ViewController.m */; };
@@ -91,6 +101,14 @@
 		6A0192C91BDBB8E800F05770 /* MemoryGameKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemoryGameKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A0192D01BDBB8E800F05770 /* MemoryGameKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoryGameKitTests.m; sourceTree = "<group>"; };
 		6A0192D21BDBB8E800F05770 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A0192DF1BDBC7E300F05770 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = ../Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
+		6A0192E21BDBC83B00F05770 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
+		6A0192E31BDBC83B00F05770 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
+		6A0192E61BDBCE2400F05770 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		6A0192E81BDBD18200F05770 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
+		6A0192E91BDBD18200F05770 /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
+		6A0192EF1BDBEA0600F05770 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		6A0192F01BDBEA0600F05770 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		6A513EB51BDBB85300C396CC /* MemoryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A513EB91BDBB85400C396CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6A513EBB1BDBB85400C396CC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -108,6 +126,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A0192EC1BDBDF5300F05770 /* MemoryGameKit.framework in Frameworks */,
+				6A0192ED1BDBE28900F05770 /* ReactiveCocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A0192E01BDBC7E300F05770 /* ReactiveCocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +173,11 @@
 			isa = PBXGroup;
 			children = (
 				6A0192C21BDBB8E800F05770 /* MemoryGameKit.h */,
+				6A0192E21BDBC83B00F05770 /* APIClient.h */,
+				6A0192E31BDBC83B00F05770 /* APIClient.m */,
+				6A0192E81BDBD18200F05770 /* Track.h */,
+				6A0192F31BDBEB8500F05770 /* Models */,
+				6A0192DF1BDBC7E300F05770 /* ReactiveCocoa.framework */,
 				6A0192C41BDBB8E800F05770 /* Info.plist */,
 			);
 			path = MemoryGameKit;
@@ -164,6 +190,17 @@
 				6A0192D21BDBB8E800F05770 /* Info.plist */,
 			);
 			path = MemoryGameKitTests;
+			sourceTree = "<group>";
+		};
+		6A0192F31BDBEB8500F05770 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6A0192E91BDBD18200F05770 /* Track.m */,
+				6A0192EF1BDBEA0600F05770 /* User.h */,
+				6A0192F01BDBEA0600F05770 /* User.m */,
+				6A0192E61BDBCE2400F05770 /* Constants.h */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		6A513EAC1BDBB85300C396CC = {
@@ -219,7 +256,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A0192F11BDBEA0600F05770 /* User.h in Headers */,
+				6A0192E41BDBC83B00F05770 /* APIClient.h in Headers */,
 				6A0192C31BDBB8E800F05770 /* MemoryGameKit.h in Headers */,
+				6A0192EA1BDBD18200F05770 /* Track.h in Headers */,
+				6A0192E71BDBCE2400F05770 /* Constants.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +274,7 @@
 				6A0192A71BDBB8C900F05770 /* Sources */,
 				6A0192A81BDBB8C900F05770 /* Frameworks */,
 				6A0192A91BDBB8C900F05770 /* Resources */,
+				6A0192EE1BDBE4C600F05770 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -251,6 +293,7 @@
 				6A0192BC1BDBB8E800F05770 /* Frameworks */,
 				6A0192BD1BDBB8E800F05770 /* Headers */,
 				6A0192BE1BDBB8E800F05770 /* Resources */,
+				6A0192E11BDBC80800F05770 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -381,6 +424,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6A0192E11BDBC80800F05770 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		6A0192EE1BDBE4C600F05770 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6A0192A71BDBB8C900F05770 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -394,6 +468,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A0192E51BDBC83B00F05770 /* APIClient.m in Sources */,
+				6A0192EB1BDBD18200F05770 /* Track.m in Sources */,
+				6A0192F21BDBEA0600F05770 /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +548,11 @@
 		6A0192B71BDBB8C900F05770 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MemoryExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.isaac.MemoryGame.MemoryExtension;
@@ -482,6 +564,11 @@
 		6A0192B81BDBB8C900F05770 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MemoryExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.isaac.MemoryGame.MemoryExtension;
@@ -498,6 +585,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MemoryGameKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -518,6 +610,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MemoryGameKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -636,6 +733,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MemoryGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.isaac.MemoryGame;
@@ -647,6 +745,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MemoryGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.isaac.MemoryGame;
@@ -664,6 +763,7 @@
 				6A0192B81BDBB8C900F05770 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6A0192D71BDBB8E900F05770 /* Build configuration list for PBXNativeTarget "MemoryGameKit" */ = {
 			isa = XCConfigurationList;
@@ -672,6 +772,7 @@
 				6A0192D91BDBB8E900F05770 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6A0192DB1BDBB8E900F05770 /* Build configuration list for PBXNativeTarget "MemoryGameKitTests" */ = {
 			isa = XCConfigurationList;
@@ -680,6 +781,7 @@
 				6A0192DD1BDBB8E900F05770 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6A513EB01BDBB85300C396CC /* Build configuration list for PBXProject "MemoryGame" */ = {
 			isa = XCConfigurationList;
