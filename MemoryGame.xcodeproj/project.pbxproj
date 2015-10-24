@@ -11,26 +11,27 @@
 		6A0192B21BDBB8C900F05770 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A0192B01BDBB8C900F05770 /* MainInterface.storyboard */; };
 		6A0192B61BDBB8C900F05770 /* MemoryExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6A0192AB1BDBB8C900F05770 /* MemoryExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6A0192C31BDBB8E800F05770 /* MemoryGameKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A0192C21BDBB8E800F05770 /* MemoryGameKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6A0192CA1BDBB8E800F05770 /* MemoryGameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0192C01BDBB8E800F05770 /* MemoryGameKit.framework */; settings = {ASSET_TAGS = (); }; };
+		6A0192CA1BDBB8E800F05770 /* MemoryGameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0192C01BDBB8E800F05770 /* MemoryGameKit.framework */; };
 		6A0192D11BDBB8E800F05770 /* MemoryGameKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0192D01BDBB8E800F05770 /* MemoryGameKitTests.m */; };
 		6A0192D51BDBB8E800F05770 /* MemoryGameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0192C01BDBB8E800F05770 /* MemoryGameKit.framework */; };
 		6A0192D61BDBB8E800F05770 /* MemoryGameKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0192C01BDBB8E800F05770 /* MemoryGameKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6A0192E01BDBC7E300F05770 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0192DF1BDBC7E300F05770 /* ReactiveCocoa.framework */; };
 		6A0192E41BDBC83B00F05770 /* APIClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A0192E21BDBC83B00F05770 /* APIClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6A0192E51BDBC83B00F05770 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0192E31BDBC83B00F05770 /* APIClient.m */; settings = {ASSET_TAGS = (); }; };
-		6A0192E71BDBCE2400F05770 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A0192E61BDBCE2400F05770 /* Constants.h */; settings = {ASSET_TAGS = (); }; };
-		6A0192EA1BDBD18200F05770 /* Track.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A0192E81BDBD18200F05770 /* Track.h */; settings = {ASSET_TAGS = (); }; };
-		6A0192EB1BDBD18200F05770 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0192E91BDBD18200F05770 /* Track.m */; settings = {ASSET_TAGS = (); }; };
+		6A0192E51BDBC83B00F05770 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0192E31BDBC83B00F05770 /* APIClient.m */; };
+		6A0192E71BDBCE2400F05770 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A0192E61BDBCE2400F05770 /* Constants.h */; };
+		6A0192EA1BDBD18200F05770 /* Track.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A0192E81BDBD18200F05770 /* Track.h */; };
+		6A0192EB1BDBD18200F05770 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0192E91BDBD18200F05770 /* Track.m */; };
 		6A0192EC1BDBDF5300F05770 /* MemoryGameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0192C01BDBB8E800F05770 /* MemoryGameKit.framework */; };
 		6A0192ED1BDBE28900F05770 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0192DF1BDBC7E300F05770 /* ReactiveCocoa.framework */; };
-		6A0192F11BDBEA0600F05770 /* User.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A0192EF1BDBEA0600F05770 /* User.h */; settings = {ASSET_TAGS = (); }; };
-		6A0192F21BDBEA0600F05770 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0192F01BDBEA0600F05770 /* User.m */; settings = {ASSET_TAGS = (); }; };
+		6A0192F11BDBEA0600F05770 /* User.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A0192EF1BDBEA0600F05770 /* User.h */; };
+		6A0192F21BDBEA0600F05770 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0192F01BDBEA0600F05770 /* User.m */; };
 		6A513EBA1BDBB85400C396CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A513EB91BDBB85400C396CC /* main.m */; };
 		6A513EBD1BDBB85400C396CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A513EBC1BDBB85400C396CC /* AppDelegate.m */; };
 		6A513EC01BDBB85400C396CC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A513EBF1BDBB85400C396CC /* ViewController.m */; };
 		6A513EC31BDBB85400C396CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A513EC11BDBB85400C396CC /* Main.storyboard */; };
 		6A513EC51BDBB85400C396CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A513EC41BDBB85400C396CC /* Assets.xcassets */; };
 		6A513EC81BDBB85400C396CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A513EC61BDBB85400C396CC /* LaunchScreen.storyboard */; };
+		6A896E751BDC09B9009F0E92 /* TrackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A896E741BDC09B9009F0E92 /* TrackCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,8 @@
 		6A513EC41BDBB85400C396CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A513EC71BDBB85400C396CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6A513EC91BDBB85400C396CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A896E731BDC09B9009F0E92 /* TrackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackCell.h; sourceTree = "<group>"; };
+		6A896E741BDC09B9009F0E92 /* TrackCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +166,8 @@
 			children = (
 				6A0192AD1BDBB8C900F05770 /* ShareViewController.h */,
 				6A0192AE1BDBB8C900F05770 /* ShareViewController.m */,
+				6A896E731BDC09B9009F0E92 /* TrackCell.h */,
+				6A896E741BDC09B9009F0E92 /* TrackCell.m */,
 				6A0192B01BDBB8C900F05770 /* MainInterface.storyboard */,
 				6A0192B31BDBB8C900F05770 /* Info.plist */,
 			);
@@ -461,6 +466,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A0192AF1BDBB8C900F05770 /* ShareViewController.m in Sources */,
+				6A896E751BDC09B9009F0E92 /* TrackCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

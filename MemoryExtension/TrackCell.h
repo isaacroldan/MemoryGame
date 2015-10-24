@@ -1,14 +1,13 @@
 //
-//  ShareViewController.h
-//  MemoryExtension
+//  TrackCell.h
+//  MemoryGame
 //
 //  Created by Isaac Roldán Armengol on 24/10/15.
 //  Copyright © 2015 Isaac. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import <Social/Social.h>
 
-@interface ShareViewController : UIViewController
-
+@interface TrackCell : UICollectionViewCell
+- (void)flip;
 @end
