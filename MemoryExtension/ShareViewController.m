@@ -9,6 +9,7 @@
 #import "ShareViewController.h"
 #import "MemoryGameKit.h"
 #import "TrackCell.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface ShareViewController()  <UICollectionViewDataSource, UICollectionViewDelegate, GameControllerDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -92,9 +93,8 @@
 
     if (self.tracks.count == 0) { return; }
     
-    if ([self.gameController canSelectItemAtIndex:indexPath.row]) {
+    if ([self.gameController selectItemAtIndex:indexPath.row]) {
         [cell flip];
-        [self.gameController selectItemAtIndex:indexPath.row];
     }
     
 }
