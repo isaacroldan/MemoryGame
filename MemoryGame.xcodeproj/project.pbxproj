@@ -130,8 +130,8 @@
 		6A513EC91BDBB85400C396CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A52467C1BDC3D1D00E24551 /* NSArray+Randomize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Randomize.h"; sourceTree = "<group>"; };
 		6A52467D1BDC3D1D00E24551 /* NSArray+Randomize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Randomize.m"; sourceTree = "<group>"; };
-		6A5246821BDE81A400E24551 /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = Carthage/Build/iOS/MBProgressHUD.framework; sourceTree = "<group>"; };
-		6A5246841BDE88CE00E24551 /* WebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebImage.framework; path = Carthage/Build/iOS/WebImage.framework; sourceTree = "<group>"; };
+		6A5246821BDE81A400E24551 /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = ../Carthage/Build/iOS/MBProgressHUD.framework; sourceTree = "<group>"; };
+		6A5246841BDE88CE00E24551 /* WebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebImage.framework; path = ../Carthage/Build/iOS/WebImage.framework; sourceTree = "<group>"; };
 		6A896E731BDC09B9009F0E92 /* TrackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackCell.h; sourceTree = "<group>"; };
 		6A896E741BDC09B9009F0E92 /* TrackCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackCell.m; sourceTree = "<group>"; };
 		6A896E761BDC1FFA009F0E92 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
@@ -206,6 +206,8 @@
 				6A52467D1BDC3D1D00E24551 /* NSArray+Randomize.m */,
 				6A0192F31BDBEB8500F05770 /* Models */,
 				6A0192DF1BDBC7E300F05770 /* ReactiveCocoa.framework */,
+				6A5246841BDE88CE00E24551 /* WebImage.framework */,
+				6A5246821BDE81A400E24551 /* MBProgressHUD.framework */,
 				6A0192C41BDBB8E800F05770 /* Info.plist */,
 			);
 			path = MemoryGameKit;
@@ -235,8 +237,6 @@
 		6A513EAC1BDBB85300C396CC = {
 			isa = PBXGroup;
 			children = (
-				6A5246841BDE88CE00E24551 /* WebImage.framework */,
-				6A5246821BDE81A400E24551 /* MBProgressHUD.framework */,
 				6A513EB71BDBB85400C396CC /* MemoryGame */,
 				6A0192AC1BDBB8C900F05770 /* MemoryExtension */,
 				6A0192C11BDBB8E800F05770 /* MemoryGameKit */,

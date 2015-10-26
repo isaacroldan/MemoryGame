@@ -24,6 +24,9 @@
 @implementation GameController
 
 //init the game, download everything, return the items in the block
+
+#pragma mark - Start game
+
 - (void)startGameWithPermalink:(NSString *)permalink completion:(void (^)(NSArray *items, NSError *error))completion
 {
     [[[APIClient resolveFromPermalink:permalink]
@@ -31,17 +34,21 @@
           return [APIClient fetchTracksForUser:track.userID];
       }] subscribeNext:^(NSArray *items) {
           dispatch_async(dispatch_get_main_queue(), ^{
-              if (items.count < 8) {
+              NSArray *filteredItems = [self filterTracksWithoutArtwork:items];
+              if (filteredItems.count < 8) {
                   NSError *error = [NSError errorWithDomain:@"com.isaac" code:-1 userInfo:nil];
                   completion(@[], error);
               } else {
-                  self.currentGame = [Game gameWithItems:items];
+                  self.currentGame = [Game gameWithItems:filteredItems];
                   completion(self.currentGame.items, nil);
               }
           });
       }];
     self.selectedIndex = -1;
 }
+
+
+#pragma mark - Public methods
 
 - (Track *)itemAtIndex:(NSInteger)index
 {
@@ -85,6 +92,23 @@
     }
     return YES;
 }
+
+
+#pragma mark - Helpers
+
+- (NSArray *)filterTracksWithoutArtwork:(NSArray *)tracks
+{
+    NSMutableArray *new = [NSMutableArray new];
+    for (Track *track in tracks) {
+        if (track.artworkUrl) {
+            [new addObject:track];
+        }
+    }
+    return [NSArray arrayWithArray:new];
+}
+
+
+#pragma mark - Lazy inits
 
 - (NSMutableDictionary *)matchesDict
 {

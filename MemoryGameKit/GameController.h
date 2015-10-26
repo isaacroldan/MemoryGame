@@ -8,16 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-
-typedef NS_ENUM(NSInteger, GameAction) {
-    GameActionValid,
-    GameActionMatch,
-    GameActionNoMatch,
-    GameActionInvalid,
-    GameActionFinished
-};
-
-
+@class Track;
 
 @protocol GameControllerDelegate <NSObject>
 - (void)didFoundMatchAtIndex:(NSInteger)firstIndex and:(NSInteger)secondIndex;
@@ -25,13 +16,8 @@ typedef NS_ENUM(NSInteger, GameAction) {
 - (void)didFinishGame;
 @end
 
-
-
-@class Track;
-
 @interface GameController : NSObject
 @property (nonatomic, weak) id<GameControllerDelegate> delegate;
-
 - (void)startGameWithPermalink:(NSString *)permalink completion:(void (^)(NSArray *items, NSError *error))completion;
 - (BOOL)selectItemAtIndex:(NSInteger)index;
 - (BOOL)canSelectItemAtIndex:(NSInteger)index;

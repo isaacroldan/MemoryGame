@@ -10,6 +10,5 @@
 
 @interface Game : NSObject
 @property (nonatomic, strong) NSArray *items;
-
 + (id)gameWithItems:(NSArray *)tracks;
 @end

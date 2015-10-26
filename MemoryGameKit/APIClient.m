@@ -34,9 +34,7 @@
         if ([json isKindOfClass:[NSArray class]]) {
             NSMutableArray *mapped = [@[] mutableCopy];
             for (NSDictionary *dict in json) {
-                if (dict[@"artwork_url"] != [NSNull null]) {   // make sure the object has a valid artwork
-                    [mapped addObject:[Track trackWithDictionary:dict]];
-                }
+                [mapped addObject:[Track trackWithDictionary:dict]];
             }
             return mapped;
         }
