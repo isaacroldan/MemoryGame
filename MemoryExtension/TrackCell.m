@@ -12,7 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIImageView *backImageView;
 @property (nonatomic) BOOL flipped;
-    
+
 @end
 
 
@@ -25,6 +25,12 @@
     self.imageView.layer.masksToBounds = true;
     self.imageView.clipsToBounds = true;
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    
+    self.label = [UILabel new];
+    self.label.text = @"test";
+    self.label.frame = self.imageView.bounds;
+    self.label.font = [UIFont systemFontOfSize:9];
+    [self.imageView addSubview:self.label];
 
     self.backImageView.layer.cornerRadius = 10;
     self.backImageView.layer.masksToBounds = true;

@@ -18,9 +18,20 @@ typedef NS_ENUM(NSInteger, GameAction) {
 };
 
 
+
+@protocol GameControllerDelegate <NSObject>
+- (void)didFoundMatchAtIndex:(NSInteger)firstIndex and:(NSInteger)secondIndex;
+- (void)didFailToFindMatchAtIndex:(NSInteger)firstIndex and:(NSInteger)secondIndex;
+- (void)didFinishGame;
+@end
+
+
+
 @class Track;
 
 @interface GameController : NSObject
+@property (nonatomic, weak) id<GameControllerDelegate> delegate;
+
 - (void)startGameWithPermalink:(NSString *)permalink completion:(void (^)(NSArray *items))completion;
-- (GameAction)selectTrack:(Track *)track;
+- (BOOL)selectItemAtIndex:(NSInteger)index;
 @end

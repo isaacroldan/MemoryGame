@@ -10,8 +10,10 @@
 #import "MemoryGameKit.h"
 #import "TrackCell.h"
 
-@interface ShareViewController()  <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ShareViewController()  <UICollectionViewDataSource, UICollectionViewDelegate, GameControllerDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, strong) GameController *gameController;
+@property (nonatomic, strong) NSArray *tracks;
 
 @end
 
@@ -21,28 +23,47 @@
     [super viewDidLoad];
     NSLog(@"received context: %@", self.extensionContext);
     NSString *permalink = @"https://soundcloud.com/colinparkermusic/thomas-jack-rivers-colin-parker-remix";
-    [[APIClient resolveFromPermalink:permalink] subscribeNext:^(id x) {
-        NSLog(@"received %@", x);
+    self.gameController = [GameController new];
+    self.gameController.delegate = self;
+    [self.gameController startGameWithPermalink:permalink completion:^(NSArray *items) {
+        self.tracks = items;
+        [self.collectionView reloadData];
     }];
 }
 
-- (BOOL)isContentValid {
-    // Do validation of contentText and/or NSExtensionContext attachments here
-    
+- (BOOL)isContentValid
+{
     return YES;
 }
 
-- (void)didSelectPost {
-    // This is called after the user selects Post. Do the upload of contentText and/or NSExtensionContext attachments.
-    
-    // Inform the host that we're done, so it un-blocks its UI. Note: Alternatively you could call super's -didSelectPost, which will similarly complete the extension context.
+
+- (IBAction)closeGame:(id)sender
+{
     [self.extensionContext completeRequestReturningItems:@[] completionHandler:nil];
 }
 
-- (NSArray *)configurationItems {
-    // To add configuration options via table cells at the bottom of the sheet, return an array of SLComposeSheetConfigurationItem here.
-    return @[];
+
+#pragma mark - GameController delegate
+
+- (void)didFinishGame
+{
+    
 }
+
+- (void)didFoundMatchAtIndex:(NSInteger)firstIndex and:(NSInteger)secondIndex
+{
+    
+}
+
+
+- (void)didFailToFindMatchAtIndex:(NSInteger)firstIndex and:(NSInteger)secondIndex
+{
+    TrackCell *firstCell = (TrackCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:firstIndex inSection:0]];
+    TrackCell *secondCell = (TrackCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:secondIndex inSection:0]];
+   [firstCell performSelector:@selector(flip) withObject:nil afterDelay:0.5];
+    [secondCell performSelector:@selector(flip) withObject:nil afterDelay:0.5];
+}
+
 
 
 #pragma mark - UICollectionViewDataSource
@@ -55,13 +76,35 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     TrackCell *cell = (TrackCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    if (self.tracks.count == 0) {
+        cell.label.text = @"00";
+    }
+    else {
+        Track *track = self.tracks[indexPath.row];
+        cell.label.text = [track.trackID stringValue];
+    }
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     TrackCell *cell = (TrackCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    [cell flip];
+
+    if (self.tracks.count == 0) { return; }
+    
+    if ([self.gameController canSelectItemAtIndex:indexPath.row]) {
+        [cell flip];
+        [self.gameController selectItemAtIndex:indexPath.row];
+    }
+    
+}
+
+- (NSArray *)tracks
+{
+    if (!_tracks) {
+        _tracks = @[];
+    }
+    return _tracks;
 }
 
 

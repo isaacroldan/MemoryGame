@@ -12,12 +12,12 @@
 #import "APIClient.h"
 
 
-
 @interface GameController()
 @property (nonatomic, strong) Game *currentGame;
-@property (nonatomic, strong) Track *selectedTrack;
-@property (nonatomic, assign) NSInteger matches;
+@property (nonatomic, assign) NSInteger selectedIndex;
+@property (nonatomic, assign) NSMutableArray *matches;
 @end
+
 
 
 @implementation GameController
@@ -32,33 +32,53 @@
           self.currentGame = [Game gameWithItems:items];
           completion(self.currentGame.items);
       }];
-    self.selectedTrack = nil;
+    self.selectedIndex = -1;
     self.matches = 0;
 }
 
-
-- (GameAction)selectTrack:(Track *)track
+- (Track *)itemAtIndex:(NSInteger)index
 {
-    if (!track) {
-        return GameActionInvalid;
-    }
-    if (!self.selectedTrack) {
-        self.selectedTrack = track; //first selection
-        return GameActionValid;
-    }
-    else if (self.selectedTrack == track) {
-        self.selectedTrack = nil;
-        self.matches++;
-        if (self.matches == self.currentGame.items.count/2) {
-            return GameActionFinished; // no more matches!
+    return self.currentGame.items[index];
+}
+
+- (BOOL)canSelectItemAtIndex:(NSInteger)index
+{
+    return ![self.matches containsObject:@(index)];
+}
+
+/**
+ Select the item at the given index and detect if there is a match or not. 
+ Calls the delegate according to the matches or fails detected.
+ 
+ Returns a BOOL, indicating wether the item can be selected or not.
+ */
+- (BOOL)selectItemAtIndex:(NSInteger)index
+{
+    if (index >= self.currentGame.items.count) { return NO; }
+    if (![self canSelectItemAtIndex:index]) { return NO; }
+    Track *newTrack = self.currentGame.items[index];
+    
+    if (self.selectedIndex > -1) {
+        Track *selectedTrack = self.currentGame.items[self.selectedIndex];
+        if (selectedTrack == newTrack) {
+            [self.delegate didFoundMatchAtIndex:index and:self.selectedIndex];
+            [self.matches addObject:@(index)];
+            [self.matches addObject:@(self.selectedIndex)];
+            if (self.matches.count == self.currentGame.items.count) {
+                [self.delegate didFinishGame];
+            }
         }
-        return GameActionMatch; //second selection, match
+        else {
+            [self.delegate didFailToFindMatchAtIndex:index and:self.selectedIndex];
+        }
+        self.selectedIndex = -1;
     }
     else {
-        self.selectedTrack = nil;
-        return GameActionNoMatch; //second selection, no match
+        self.selectedIndex = index;
     }
+    return YES;
 }
+
 
 
 @end

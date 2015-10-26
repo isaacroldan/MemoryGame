@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface TrackCell : UICollectionViewCell
+@property (nonatomic, strong) UILabel *label;
 - (void)flip;
 @end
