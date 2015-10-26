@@ -9,7 +9,8 @@
 #import "ShareViewController.h"
 #import "MemoryGameKit.h"
 #import "TrackCell.h"
-#import <SVProgressHUD/SVProgressHUD.h>
+#import <MBProgressHUD/MBProgressHUD.h>
+
 
 @interface ShareViewController()  <UICollectionViewDataSource, UICollectionViewDelegate, GameControllerDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -23,12 +24,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"received context: %@", self.extensionContext);
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
     NSString *permalink = @"https://soundcloud.com/colinparkermusic/thomas-jack-rivers-colin-parker-remix";
     self.gameController = [GameController new];
     self.gameController.delegate = self;
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.labelText = @"Preparing your game...";
     [self.gameController startGameWithPermalink:permalink completion:^(NSArray *items) {
         self.tracks = items;
         [self.collectionView reloadData];
+        [hud hide:YES];
     }];
 }
 

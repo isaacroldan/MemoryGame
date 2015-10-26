@@ -1,2 +1,2 @@
 github "ReactiveCocoa/ReactiveCocoa" "v2.5"
-github "TransitApp/SVProgressHUD" "1.1.3"
+github "jdg/MBProgressHUD" "f089d2a035df0044714d6a80f614ba35f29c9baa"

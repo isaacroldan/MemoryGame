@@ -29,8 +29,10 @@
       flattenMap:^RACStream *(Track *track) {
           return [APIClient fetchTracksForUser:track.userID];
       }] subscribeNext:^(NSArray *items) {
-          self.currentGame = [Game gameWithItems:items];
-          completion(self.currentGame.items);
+          dispatch_async(dispatch_get_main_queue(), ^{
+              self.currentGame = [Game gameWithItems:items];
+              completion(self.currentGame.items);
+          });
       }];
     self.selectedIndex = -1;
     self.matches = 0;

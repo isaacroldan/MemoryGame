@@ -33,7 +33,7 @@
 		6A513EC81BDBB85400C396CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A513EC61BDBB85400C396CC /* LaunchScreen.storyboard */; };
 		6A52467E1BDC3D1D00E24551 /* NSArray+Randomize.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A52467C1BDC3D1D00E24551 /* NSArray+Randomize.h */; };
 		6A52467F1BDC3D1D00E24551 /* NSArray+Randomize.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A52467D1BDC3D1D00E24551 /* NSArray+Randomize.m */; };
-		6A5246811BDE736800E24551 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5246801BDE736800E24551 /* SVProgressHUD.framework */; };
+		6A5246831BDE81A400E24551 /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5246821BDE81A400E24551 /* MBProgressHUD.framework */; };
 		6A896E751BDC09B9009F0E92 /* TrackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A896E741BDC09B9009F0E92 /* TrackCell.m */; };
 		6A896E781BDC1FFA009F0E92 /* Game.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A896E761BDC1FFA009F0E92 /* Game.h */; };
 		6A896E791BDC1FFA009F0E92 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A896E771BDC1FFA009F0E92 /* Game.m */; };
@@ -129,7 +129,7 @@
 		6A513EC91BDBB85400C396CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A52467C1BDC3D1D00E24551 /* NSArray+Randomize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Randomize.h"; sourceTree = "<group>"; };
 		6A52467D1BDC3D1D00E24551 /* NSArray+Randomize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Randomize.m"; sourceTree = "<group>"; };
-		6A5246801BDE736800E24551 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
+		6A5246821BDE81A400E24551 /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = Carthage/Build/iOS/MBProgressHUD.framework; sourceTree = "<group>"; };
 		6A896E731BDC09B9009F0E92 /* TrackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackCell.h; sourceTree = "<group>"; };
 		6A896E741BDC09B9009F0E92 /* TrackCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackCell.m; sourceTree = "<group>"; };
 		6A896E761BDC1FFA009F0E92 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
@@ -144,8 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A0192EC1BDBDF5300F05770 /* MemoryGameKit.framework in Frameworks */,
-				6A5246811BDE736800E24551 /* SVProgressHUD.framework in Frameworks */,
 				6A0192ED1BDBE28900F05770 /* ReactiveCocoa.framework in Frameworks */,
+				6A5246831BDE81A400E24551 /* MBProgressHUD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +232,7 @@
 		6A513EAC1BDBB85300C396CC = {
 			isa = PBXGroup;
 			children = (
-				6A5246801BDE736800E24551 /* SVProgressHUD.framework */,
+				6A5246821BDE81A400E24551 /* MBProgressHUD.framework */,
 				6A513EB71BDBB85400C396CC /* MemoryGame */,
 				6A0192AC1BDBB8C900F05770 /* MemoryExtension */,
 				6A0192C11BDBB8E800F05770 /* MemoryGameKit */,
@@ -476,7 +476,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/MBProgressHUD.framework",
 			);
 			outputPaths = (
 			);
@@ -588,6 +588,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"SV_APP_EXTENSIONS=1",
+				);
 				INFOPLIST_FILE = MemoryExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.isaac.MemoryGame.MemoryExtension;
@@ -604,6 +608,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = "SV_APP_EXTENSIONS=1";
 				INFOPLIST_FILE = MemoryExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.isaac.MemoryGame.MemoryExtension;
