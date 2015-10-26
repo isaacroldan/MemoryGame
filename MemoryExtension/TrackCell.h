@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface TrackCell : UICollectionViewCell
-@property (nonatomic, strong) UILabel *label;
 - (void)flip;
+- (void)showFront;
+- (void)showBack;
+- (void)discoverCard:(BOOL)discover;
+- (void)configureWithImageURL:(NSString *)image;
 @end

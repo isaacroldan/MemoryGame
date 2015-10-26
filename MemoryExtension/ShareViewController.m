@@ -24,21 +24,44 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"received context: %@", self.extensionContext);
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    NSString *permalink = @"https://soundcloud.com/colinparkermusic/thomas-jack-rivers-colin-parker-remix";
     self.gameController = [GameController new];
     self.gameController.delegate = self;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeText;
     hud.labelText = @"Preparing your game...";
-    [self.gameController startGameWithPermalink:permalink completion:^(NSArray *items) {
-        self.tracks = items;
-        [self.collectionView reloadData];
-        [hud hide:YES];
+    [self extractPermalinkwithCompletion:^(NSString *permalink) {
+        [self.gameController startGameWithPermalink:permalink completion:^(NSArray *items, NSError *error) {
+            [hud hide:YES];
+            if (error) {
+                [self showError:@"Invalid user or not enough tracks :("];
+            }
+            else {
+                self.tracks = items;
+                [self.collectionView reloadData];
+            }
+        }];
     }];
+}
+
+- (void)showError:(NSString *)message
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.labelText = message;
+    [hud performSelector:@selector(hide:) withObject:@YES afterDelay:3];
+}
+
+- (void)extractPermalinkwithCompletion:(void (^)(NSString *permalink))completion
+{
+    for (NSExtensionItem *object in self.extensionContext.inputItems) {
+        for (NSItemProvider *item in object.attachments) {
+            if ([item hasItemConformingToTypeIdentifier:@"public.url"]) {
+                [item loadItemForTypeIdentifier:@"public.url" options:nil completionHandler:^(NSURL *item, NSError * error) {
+                    completion(item.absoluteString);
+                }];
+            }
+        }
+    }
 }
 
 - (BOOL)isContentValid
@@ -57,12 +80,23 @@
 
 - (void)didFinishGame
 {
-    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.labelText = @"Awesome!";
+    [hud performSelector:@selector(hide:) withObject:@YES afterDelay:2];
+    for (int i = 0; i>self.tracks.count; i++) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
+        TrackCell *cell = (TrackCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+        [cell flip];
+    }
 }
 
 - (void)didFoundMatchAtIndex:(NSInteger)firstIndex and:(NSInteger)secondIndex
 {
-    
+    TrackCell *firstCell = (TrackCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:firstIndex inSection:0]];
+    TrackCell *secondCell = (TrackCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:secondIndex inSection:0]];
+    [firstCell performSelector:@selector(showFront) withObject:nil afterDelay:0];
+    [secondCell performSelector:@selector(showFront) withObject:nil afterDelay:0];
 }
 
 
@@ -70,8 +104,8 @@
 {
     TrackCell *firstCell = (TrackCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:firstIndex inSection:0]];
     TrackCell *secondCell = (TrackCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:secondIndex inSection:0]];
-   [firstCell performSelector:@selector(flip) withObject:nil afterDelay:0.5];
-    [secondCell performSelector:@selector(flip) withObject:nil afterDelay:0.5];
+    [firstCell performSelector:@selector(showBack) withObject:nil afterDelay:0.5];
+    [secondCell performSelector:@selector(showBack) withObject:nil afterDelay:0.5];
 }
 
 
@@ -87,11 +121,11 @@
 {
     TrackCell *cell = (TrackCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     if (self.tracks.count == 0) {
-        cell.label.text = @"00";
+        [cell configureWithImageURL:nil];
     }
     else {
         Track *track = self.tracks[indexPath.row];
-        cell.label.text = [track.trackID stringValue];
+        [cell configureWithImageURL:track.artworkUrl];
     }
     return cell;
 }
@@ -99,13 +133,10 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     TrackCell *cell = (TrackCell *)[collectionView cellForItemAtIndexPath:indexPath];
-
     if (self.tracks.count == 0) { return; }
-    
     if ([self.gameController selectItemAtIndex:indexPath.row]) {
         [cell flip];
     }
-    
 }
 
 - (NSArray *)tracks

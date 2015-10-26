@@ -34,7 +34,9 @@
         if ([json isKindOfClass:[NSArray class]]) {
             NSMutableArray *mapped = [@[] mutableCopy];
             for (NSDictionary *dict in json) {
-                [mapped addObject:[Track trackWithDictionary:dict]];
+                if (dict[@"artwork_url"] != [NSNull null]) {   // make sure the object has a valid artwork
+                    [mapped addObject:[Track trackWithDictionary:dict]];
+                }
             }
             return mapped;
         }
@@ -44,14 +46,12 @@
     }];
 }
 
-
 + (RACSignal *)fetchFromURL:(NSURL *)url
 {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
                                               dataTaskWithURL:url
                                               completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                  // 4: Handle response here
                                                   if (error) {
                                                       [subscriber sendError:error];
                                                   }

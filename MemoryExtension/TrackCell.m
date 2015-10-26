@@ -7,11 +7,14 @@
 //
 
 #import "TrackCell.h"
+#import <WebImage/WebImage.h>
+
 @interface TrackCell()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIImageView *backImageView;
 @property (nonatomic) BOOL flipped;
+@property (nonatomic) BOOL flipping;
 
 @end
 
@@ -26,12 +29,6 @@
     self.imageView.clipsToBounds = true;
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     
-    self.label = [UILabel new];
-    self.label.text = @"test";
-    self.label.frame = self.imageView.bounds;
-    self.label.font = [UIFont systemFontOfSize:9];
-    [self.imageView addSubview:self.label];
-
     self.backImageView.layer.cornerRadius = 10;
     self.backImageView.layer.masksToBounds = true;
     self.backImageView.clipsToBounds = true;
@@ -40,24 +37,44 @@
     self.contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 }
 
+
+#pragma mark - Configure cell
+
+- (void)configureWithImageURL:(NSString *)image
+{
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:image]];
+}
+
+
+#pragma mark - Flip cell methods
+
 - (void)flip
 {
-    [UIView transitionWithView:self.contentView duration:0.3 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
-        self.flipped ? [self showBack] : [self showFront];
-    } completion:^(BOOL finished) {
-        self.flipped = !self.flipped;
-    }];
+    [self discoverCard:!self.flipped];
 }
 
 - (void)showFront
 {
-    [self.contentView insertSubview:self.imageView aboveSubview:self.backImageView];
+    [self discoverCard:YES];
 }
-
 
 - (void)showBack
 {
-    [self.contentView insertSubview:self.backImageView aboveSubview:self.imageView];
+    [self discoverCard:NO];
+}
+
+- (void)discoverCard:(BOOL)discover
+{
+    if (self.flipping) { return; }
+    self.flipping = YES;
+    [UIView transitionWithView:self.contentView duration:0.3 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
+        !discover ?
+        [self.contentView insertSubview:self.backImageView aboveSubview:self.imageView] :
+        [self.contentView insertSubview:self.imageView aboveSubview:self.backImageView];
+    } completion:^(BOOL finished) {
+        self.flipped = discover;
+        self.flipping = NO;
+    }];
 }
 
 @end

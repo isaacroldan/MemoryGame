@@ -32,6 +32,7 @@ typedef NS_ENUM(NSInteger, GameAction) {
 @interface GameController : NSObject
 @property (nonatomic, weak) id<GameControllerDelegate> delegate;
 
-- (void)startGameWithPermalink:(NSString *)permalink completion:(void (^)(NSArray *items))completion;
+- (void)startGameWithPermalink:(NSString *)permalink completion:(void (^)(NSArray *items, NSError *error))completion;
 - (BOOL)selectItemAtIndex:(NSInteger)index;
+- (BOOL)canSelectItemAtIndex:(NSInteger)index;
 @end

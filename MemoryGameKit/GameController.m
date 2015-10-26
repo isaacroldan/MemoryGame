@@ -16,6 +16,7 @@
 @property (nonatomic, strong) Game *currentGame;
 @property (nonatomic, assign) NSInteger selectedIndex;
 @property (nonatomic, assign) NSMutableArray *matches;
+@property (nonatomic, strong) NSMutableDictionary *matchesDict;
 @end
 
 
@@ -23,19 +24,23 @@
 @implementation GameController
 
 //init the game, download everything, return the items in the block
-- (void)startGameWithPermalink:(NSString *)permalink completion:(void (^)(NSArray *items))completion
+- (void)startGameWithPermalink:(NSString *)permalink completion:(void (^)(NSArray *items, NSError *error))completion
 {
     [[[APIClient resolveFromPermalink:permalink]
       flattenMap:^RACStream *(Track *track) {
           return [APIClient fetchTracksForUser:track.userID];
       }] subscribeNext:^(NSArray *items) {
           dispatch_async(dispatch_get_main_queue(), ^{
-              self.currentGame = [Game gameWithItems:items];
-              completion(self.currentGame.items);
+              if (items.count < 8) {
+                  NSError *error = [NSError errorWithDomain:@"com.isaac" code:-1 userInfo:nil];
+                  completion(@[], error);
+              } else {
+                  self.currentGame = [Game gameWithItems:items];
+                  completion(self.currentGame.items, nil);
+              }
           });
       }];
     self.selectedIndex = -1;
-    self.matches = 0;
 }
 
 - (Track *)itemAtIndex:(NSInteger)index
@@ -45,7 +50,7 @@
 
 - (BOOL)canSelectItemAtIndex:(NSInteger)index
 {
-    return ![self.matches containsObject:@(index)];
+    return ([self.matchesDict objectForKey:@(index)] == nil);
 }
 
 /**
@@ -60,13 +65,13 @@
     if (![self canSelectItemAtIndex:index]) { return NO; }
     Track *newTrack = self.currentGame.items[index];
     
-    if (self.selectedIndex > -1) {
+    if (self.selectedIndex > -1 && index != self.selectedIndex) {
         Track *selectedTrack = self.currentGame.items[self.selectedIndex];
         if (selectedTrack == newTrack) {
             [self.delegate didFoundMatchAtIndex:index and:self.selectedIndex];
-            [self.matches addObject:@(index)];
-            [self.matches addObject:@(self.selectedIndex)];
-            if (self.matches.count == self.currentGame.items.count) {
+            [self.matchesDict setObject:@1 forKey:@(index)];
+            [self.matchesDict setObject:@1 forKey:@(self.selectedIndex)];
+            if (self.matchesDict.allKeys.count == self.currentGame.items.count) {
                 [self.delegate didFinishGame];
             }
         }
@@ -79,6 +84,14 @@
         self.selectedIndex = index;
     }
     return YES;
+}
+
+- (NSMutableDictionary *)matchesDict
+{
+    if (!_matchesDict) {
+        _matchesDict = [NSMutableDictionary new];
+    }
+    return _matchesDict;
 }
 
 
