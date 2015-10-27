@@ -2,8 +2,8 @@
 //  ShareViewPresenter.m
 //  MemoryGame
 //
-//  Created by Isaac Roldán Armengol on 27/10/15.
-//  Copyright © 2015 Isaac. All rights reserved.
+//  Created by         on 27/10/15.
+//  Copyright © 2015  . All rights reserved.
 //
 
 #import "ShareViewPresenter.h"
@@ -42,7 +42,7 @@
             if (error) {
                 [welf.viewController showMessage:@"Invalid user or not enough tracks :("];
                 [welf.viewController updateArtistName:@"Choose another artist!"];
-                
+                [welf.viewController reloadView];
             }
             else {
                 welf.tracks = items;

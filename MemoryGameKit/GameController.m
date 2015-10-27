@@ -2,8 +2,8 @@
 //  GameController.m
 //  MemoryGame
 //
-//  Created by Isaac Roldán Armengol on 24/10/15.
-//  Copyright © 2015 Isaac. All rights reserved.
+//  Created by         on 24/10/15.
+//  Copyright © 2015  . All rights reserved.
 //
 
 #import "GameController.h"
@@ -35,7 +35,7 @@
           dispatch_async(dispatch_get_main_queue(), ^{
               NSArray *filteredItems = [self filterTracksWithoutArtwork:items];
               if (filteredItems.count < 8) {
-                  NSError *error = [NSError errorWithDomain:@"com.isaac" code:-1 userInfo:nil];
+                  NSError *error = [NSError errorWithDomain:@"com.error" code:-1 userInfo:nil];
                   completion(@[], error);
               } else {
                   self.currentGame = [Game gameWithItems:filteredItems];

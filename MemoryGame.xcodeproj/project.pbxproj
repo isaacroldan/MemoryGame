@@ -190,18 +190,12 @@
 		6A0192AC1BDBB8C900F05770 /* MemoryExtension */ = {
 			isa = PBXGroup;
 			children = (
-				6A0192AD1BDBB8C900F05770 /* ShareViewController.h */,
-				6A0192AE1BDBB8C900F05770 /* ShareViewController.m */,
-				6A52468F1BDF0B8900E24551 /* ShareViewPresenter.h */,
-				6A5246901BDF0B8900E24551 /* ShareViewPresenter.m */,
-				6A52468C1BDF0B6200E24551 /* ShareViewCollectionViewDataSource.h */,
-				6A52468D1BDF0B6200E24551 /* ShareViewCollectionViewDataSource.m */,
-				6A896E731BDC09B9009F0E92 /* TrackCell.h */,
-				6A896E741BDC09B9009F0E92 /* TrackCell.m */,
+				6A9253FA1BDF8380000460AF /* View */,
+				6A9253FB1BDF838D000460AF /* Presenter */,
+				6A9253FC1BDF83A1000460AF /* DataSource */,
 				6A0192B01BDBB8C900F05770 /* MainInterface.storyboard */,
 				6A0192B31BDBB8C900F05770 /* Info.plist */,
-				6A5246841BDE88CE00E24551 /* WebImage.framework */,
-				6A5246821BDE81A400E24551 /* MBProgressHUD.framework */,
+				6A9253FD1BDF83CA000460AF /* Frameworks */,
 			);
 			path = MemoryExtension;
 			sourceTree = "<group>";
@@ -210,16 +204,11 @@
 			isa = PBXGroup;
 			children = (
 				6A0192C21BDBB8E800F05770 /* MemoryGameKit.h */,
-				6A896E761BDC1FFA009F0E92 /* Game.h */,
-				6A896E771BDC1FFA009F0E92 /* Game.m */,
-				6A896E7A1BDC203B009F0E92 /* GameController.h */,
-				6A896E7B1BDC203B009F0E92 /* GameController.m */,
-				6A0192E21BDBC83B00F05770 /* APIClient.h */,
-				6A0192E31BDBC83B00F05770 /* APIClient.m */,
-				6A52467C1BDC3D1D00E24551 /* NSArray+Randomize.h */,
-				6A52467D1BDC3D1D00E24551 /* NSArray+Randomize.m */,
+				6A9253F91BDF8371000460AF /* GameLogic */,
+				6A9253F71BDF8342000460AF /* API */,
+				6A9253F81BDF8355000460AF /* Helpers */,
 				6A0192F31BDBEB8500F05770 /* Models */,
-				6A0192DF1BDBC7E300F05770 /* ReactiveCocoa.framework */,
+				6A9253FE1BDF83D8000460AF /* Frameworks */,
 				6A0192C41BDBB8E800F05770 /* Info.plist */,
 			);
 			path = MemoryGameKit;
@@ -241,7 +230,6 @@
 			children = (
 				6A0192E81BDBD18200F05770 /* Track.h */,
 				6A0192E91BDBD18200F05770 /* Track.m */,
-				6A0192E61BDBCE2400F05770 /* Constants.h */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -290,6 +278,82 @@
 				6A513EB91BDBB85400C396CC /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6A9253F71BDF8342000460AF /* API */ = {
+			isa = PBXGroup;
+			children = (
+				6A0192E61BDBCE2400F05770 /* Constants.h */,
+				6A0192E21BDBC83B00F05770 /* APIClient.h */,
+				6A0192E31BDBC83B00F05770 /* APIClient.m */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		6A9253F81BDF8355000460AF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6A52467C1BDC3D1D00E24551 /* NSArray+Randomize.h */,
+				6A52467D1BDC3D1D00E24551 /* NSArray+Randomize.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		6A9253F91BDF8371000460AF /* GameLogic */ = {
+			isa = PBXGroup;
+			children = (
+				6A896E761BDC1FFA009F0E92 /* Game.h */,
+				6A896E771BDC1FFA009F0E92 /* Game.m */,
+				6A896E7A1BDC203B009F0E92 /* GameController.h */,
+				6A896E7B1BDC203B009F0E92 /* GameController.m */,
+			);
+			name = GameLogic;
+			sourceTree = "<group>";
+		};
+		6A9253FA1BDF8380000460AF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6A0192AD1BDBB8C900F05770 /* ShareViewController.h */,
+				6A0192AE1BDBB8C900F05770 /* ShareViewController.m */,
+				6A896E731BDC09B9009F0E92 /* TrackCell.h */,
+				6A896E741BDC09B9009F0E92 /* TrackCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		6A9253FB1BDF838D000460AF /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				6A52468F1BDF0B8900E24551 /* ShareViewPresenter.h */,
+				6A5246901BDF0B8900E24551 /* ShareViewPresenter.m */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		6A9253FC1BDF83A1000460AF /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				6A52468C1BDF0B6200E24551 /* ShareViewCollectionViewDataSource.h */,
+				6A52468D1BDF0B6200E24551 /* ShareViewCollectionViewDataSource.m */,
+			);
+			name = DataSource;
+			sourceTree = "<group>";
+		};
+		6A9253FD1BDF83CA000460AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6A5246841BDE88CE00E24551 /* WebImage.framework */,
+				6A5246821BDE81A400E24551 /* MBProgressHUD.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6A9253FE1BDF83D8000460AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6A0192DF1BDBC7E300F05770 /* ReactiveCocoa.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -627,7 +691,7 @@
 				);
 				INFOPLIST_FILE = MemoryExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.isaac.MemoryGame.MemoryExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.memory.MemoryGame.MemoryExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -644,7 +708,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "SV_APP_EXTENSIONS=1";
 				INFOPLIST_FILE = MemoryExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.isaac.MemoryGame.MemoryExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.memory.MemoryGame.MemoryExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -666,7 +730,7 @@
 				INFOPLIST_FILE = MemoryGameKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.isaac.MemoryGameKit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.memory.MemoryGameKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -691,7 +755,7 @@
 				INFOPLIST_FILE = MemoryGameKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.isaac.MemoryGameKit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.memory.MemoryGameKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -817,7 +881,7 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MemoryGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.isaac.MemoryGame;
+				PRODUCT_BUNDLE_IDENTIFIER = com.memory.MemoryGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -829,7 +893,7 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MemoryGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.isaac.MemoryGame;
+				PRODUCT_BUNDLE_IDENTIFIER = com.memory.MemoryGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

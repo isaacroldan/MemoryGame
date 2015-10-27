@@ -2,8 +2,8 @@
 //  NSMutableArray+Randomize.m
 //  MemoryGame
 //
-//  Created by Isaac Roldán Armengol on 25/10/15.
-//  Copyright © 2015 Isaac. All rights reserved.
+//  Created by         on 25/10/15.
+//  Copyright © 2015  . All rights reserved.
 //
 
 #import "NSArray+Randomize.h"
