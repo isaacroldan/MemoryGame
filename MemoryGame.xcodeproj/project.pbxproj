@@ -35,6 +35,8 @@
 		6A52467F1BDC3D1D00E24551 /* NSArray+Randomize.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A52467D1BDC3D1D00E24551 /* NSArray+Randomize.m */; };
 		6A5246831BDE81A400E24551 /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5246821BDE81A400E24551 /* MBProgressHUD.framework */; };
 		6A5246851BDE88CE00E24551 /* WebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5246841BDE88CE00E24551 /* WebImage.framework */; };
+		6A5246881BDEFB5A00E24551 /* Expecta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5246861BDEFB5A00E24551 /* Expecta.framework */; };
+		6A5246891BDEFB5A00E24551 /* Specta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5246871BDEFB5A00E24551 /* Specta.framework */; };
 		6A896E751BDC09B9009F0E92 /* TrackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A896E741BDC09B9009F0E92 /* TrackCell.m */; };
 		6A896E781BDC1FFA009F0E92 /* Game.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A896E761BDC1FFA009F0E92 /* Game.h */; };
 		6A896E791BDC1FFA009F0E92 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A896E771BDC1FFA009F0E92 /* Game.m */; };
@@ -132,6 +134,8 @@
 		6A52467D1BDC3D1D00E24551 /* NSArray+Randomize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Randomize.m"; sourceTree = "<group>"; };
 		6A5246821BDE81A400E24551 /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = ../Carthage/Build/iOS/MBProgressHUD.framework; sourceTree = "<group>"; };
 		6A5246841BDE88CE00E24551 /* WebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebImage.framework; path = ../Carthage/Build/iOS/WebImage.framework; sourceTree = "<group>"; };
+		6A5246861BDEFB5A00E24551 /* Expecta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Expecta.framework; path = ../Carthage/Build/iOS/Expecta.framework; sourceTree = "<group>"; };
+		6A5246871BDEFB5A00E24551 /* Specta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Specta.framework; path = ../Carthage/Build/iOS/Specta.framework; sourceTree = "<group>"; };
 		6A896E731BDC09B9009F0E92 /* TrackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackCell.h; sourceTree = "<group>"; };
 		6A896E741BDC09B9009F0E92 /* TrackCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackCell.m; sourceTree = "<group>"; };
 		6A896E761BDC1FFA009F0E92 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
@@ -165,6 +169,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A0192CA1BDBB8E800F05770 /* MemoryGameKit.framework in Frameworks */,
+				6A5246881BDEFB5A00E24551 /* Expecta.framework in Frameworks */,
+				6A5246891BDEFB5A00E24551 /* Specta.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +215,8 @@
 				6A5246841BDE88CE00E24551 /* WebImage.framework */,
 				6A5246821BDE81A400E24551 /* MBProgressHUD.framework */,
 				6A0192C41BDBB8E800F05770 /* Info.plist */,
+				6A5246861BDEFB5A00E24551 /* Expecta.framework */,
+				6A5246871BDEFB5A00E24551 /* Specta.framework */,
 			);
 			path = MemoryGameKit;
 			sourceTree = "<group>";
@@ -345,6 +353,7 @@
 				6A0192C51BDBB8E800F05770 /* Sources */,
 				6A0192C61BDBB8E800F05770 /* Frameworks */,
 				6A0192C71BDBB8E800F05770 /* Resources */,
+				6A52468A1BDEFB6B00E24551 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -482,6 +491,21 @@
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/MBProgressHUD.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/WebImage.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		6A52468A1BDEFB6B00E24551 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Expecta.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Specta.framework",
 			);
 			outputPaths = (
 			);
@@ -675,6 +699,10 @@
 		6A0192DC1BDBB8E900F05770 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MemoryGameKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.isaac.MemoryGameKitTests;
@@ -686,6 +714,10 @@
 		6A0192DD1BDBB8E900F05770 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MemoryGameKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.isaac.MemoryGameKitTests;

@@ -13,10 +13,10 @@
 
 
 @interface GameController()
-@property (nonatomic, strong) Game *currentGame;
 @property (nonatomic, assign) NSInteger selectedIndex;
 @property (nonatomic, assign) NSMutableArray *matches;
 @property (nonatomic, strong) NSMutableDictionary *matchesDict;
+@property (nonatomic, strong) Game *currentGame;
 @end
 
 
