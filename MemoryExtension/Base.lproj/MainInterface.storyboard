@@ -18,9 +18,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="whD-kw-LwJ">
-                                <rect key="frame" x="64" y="180" width="472" height="365"/>
+                                <rect key="frame" x="175" y="188" width="250" height="365"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="tLv-xL-PJ0"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FZ3-S1-pbZ">
                                     <size key="itemSize" width="51" height="64"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -67,13 +70,6 @@
                                     <outlet property="delegate" destination="j1y-V4-xli" id="dI0-WY-3g9"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist memory game!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJ1-PY-3Tk">
-                                <rect key="frame" x="64" y="65" width="472" height="61"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DBb-jo-q3y">
                                 <rect key="frame" x="538" y="20" width="39" height="30"/>
                                 <animations/>
@@ -82,23 +78,29 @@
                                     <action selector="closeGame:" destination="j1y-V4-xli" eventType="touchUpInside" id="MKr-xf-cUL"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Artist memory game!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJ1-PY-3Tk">
+                                <rect key="frame" x="0.0" y="61" width="600" height="61"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="whD-kw-LwJ" firstAttribute="top" secondItem="wbc-yd-nQP" secondAttribute="top" constant="180" id="000-J3-cHF"/>
-                            <constraint firstItem="whD-kw-LwJ" firstAttribute="bottom" secondItem="d5i-Ba-RvD" secondAttribute="top" constant="-55" id="363-pU-4Q8"/>
-                            <constraint firstItem="WJ1-PY-3Tk" firstAttribute="trailing" secondItem="whD-kw-LwJ" secondAttribute="trailing" id="BNI-bq-Z55"/>
-                            <constraint firstItem="whD-kw-LwJ" firstAttribute="leading" secondItem="wbc-yd-nQP" secondAttribute="leading" constant="64" id="DIU-Rb-qzf"/>
-                            <constraint firstAttribute="trailing" secondItem="whD-kw-LwJ" secondAttribute="trailing" constant="64" id="IBT-Xt-mhr"/>
-                            <constraint firstItem="whD-kw-LwJ" firstAttribute="top" secondItem="WJ1-PY-3Tk" secondAttribute="bottom" constant="54" id="Wur-4U-pp5"/>
+                            <constraint firstItem="whD-kw-LwJ" firstAttribute="top" secondItem="wbc-yd-nQP" secondAttribute="top" constant="188" id="000-J3-cHF"/>
+                            <constraint firstItem="whD-kw-LwJ" firstAttribute="bottom" secondItem="d5i-Ba-RvD" secondAttribute="top" constant="-47" id="363-pU-4Q8"/>
+                            <constraint firstItem="whD-kw-LwJ" firstAttribute="centerX" secondItem="wbc-yd-nQP" secondAttribute="centerX" id="Lqn-XQ-YnR"/>
+                            <constraint firstItem="whD-kw-LwJ" firstAttribute="top" secondItem="WJ1-PY-3Tk" secondAttribute="bottom" constant="66" id="Wur-4U-pp5"/>
+                            <constraint firstItem="WJ1-PY-3Tk" firstAttribute="centerX" secondItem="wbc-yd-nQP" secondAttribute="centerX" id="lkD-iY-Hfo"/>
                             <constraint firstItem="DBb-jo-q3y" firstAttribute="top" secondItem="8bI-gs-bmD" secondAttribute="bottom" id="oD6-cu-MuW"/>
-                            <constraint firstItem="WJ1-PY-3Tk" firstAttribute="leading" secondItem="whD-kw-LwJ" secondAttribute="leading" id="qDH-GZ-aTm"/>
-                            <constraint firstItem="WJ1-PY-3Tk" firstAttribute="top" secondItem="8bI-gs-bmD" secondAttribute="bottom" constant="45" id="ufl-95-ph4"/>
+                            <constraint firstItem="WJ1-PY-3Tk" firstAttribute="top" secondItem="8bI-gs-bmD" secondAttribute="bottom" constant="41" id="ufl-95-ph4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DBb-jo-q3y" secondAttribute="trailing" constant="3" id="xY6-sn-6rV"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="artistName" destination="WJ1-PY-3Tk" id="Ki3-0o-s8r"/>
                         <outlet property="collectionView" destination="whD-kw-LwJ" id="d0I-u0-b8U"/>
                     </connections>
                 </viewController>

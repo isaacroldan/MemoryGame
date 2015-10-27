@@ -23,8 +23,6 @@
 		6A0192EB1BDBD18200F05770 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0192E91BDBD18200F05770 /* Track.m */; };
 		6A0192EC1BDBDF5300F05770 /* MemoryGameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0192C01BDBB8E800F05770 /* MemoryGameKit.framework */; };
 		6A0192ED1BDBE28900F05770 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0192DF1BDBC7E300F05770 /* ReactiveCocoa.framework */; };
-		6A0192F11BDBEA0600F05770 /* User.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A0192EF1BDBEA0600F05770 /* User.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6A0192F21BDBEA0600F05770 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0192F01BDBEA0600F05770 /* User.m */; };
 		6A513EBA1BDBB85400C396CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A513EB91BDBB85400C396CC /* main.m */; };
 		6A513EBD1BDBB85400C396CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A513EBC1BDBB85400C396CC /* AppDelegate.m */; };
 		6A513EC01BDBB85400C396CC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A513EBF1BDBB85400C396CC /* ViewController.m */; };
@@ -118,8 +116,6 @@
 		6A0192E61BDBCE2400F05770 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		6A0192E81BDBD18200F05770 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
 		6A0192E91BDBD18200F05770 /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
-		6A0192EF1BDBEA0600F05770 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		6A0192F01BDBEA0600F05770 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		6A513EB51BDBB85300C396CC /* MemoryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A513EB91BDBB85400C396CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6A513EBB1BDBB85400C396CC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -235,8 +231,6 @@
 			children = (
 				6A0192E81BDBD18200F05770 /* Track.h */,
 				6A0192E91BDBD18200F05770 /* Track.m */,
-				6A0192EF1BDBEA0600F05770 /* User.h */,
-				6A0192F01BDBEA0600F05770 /* User.m */,
 				6A0192E61BDBCE2400F05770 /* Constants.h */,
 			);
 			name = Models;
@@ -295,7 +289,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A0192F11BDBEA0600F05770 /* User.h in Headers */,
 				6A0192E41BDBC83B00F05770 /* APIClient.h in Headers */,
 				6A896E781BDC1FFA009F0E92 /* Game.h in Headers */,
 				6A896E7C1BDC203B009F0E92 /* GameController.h in Headers */,
@@ -532,7 +525,6 @@
 				6A0192E51BDBC83B00F05770 /* APIClient.m in Sources */,
 				6A52467F1BDC3D1D00E24551 /* NSArray+Randomize.m in Sources */,
 				6A0192EB1BDBD18200F05770 /* Track.m in Sources */,
-				6A0192F21BDBEA0600F05770 /* User.m in Sources */,
 				6A896E7D1BDC203B009F0E92 /* GameController.m in Sources */,
 				6A896E791BDC1FFA009F0E92 /* Game.m in Sources */,
 			);

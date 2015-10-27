@@ -14,6 +14,7 @@
 
 @interface ShareViewController()  <UICollectionViewDataSource, UICollectionViewDelegate, GameControllerDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UILabel *artistName;
 @property (nonatomic, strong) GameController *gameController;
 @property (nonatomic, strong) NSArray *tracks;
 
@@ -34,10 +35,14 @@
             [hud hide:YES];
             if (error) {
                 [self showError:@"Invalid user or not enough tracks :("];
+                self.artistName.text = @"Choose another artist!";
+
             }
             else {
                 self.tracks = items;
                 [self.collectionView reloadData];
+                Track *first = [items firstObject];
+                self.artistName.text = [NSString stringWithFormat:@"%@ Memory Game!", first.username];
             }
         }];
     }];

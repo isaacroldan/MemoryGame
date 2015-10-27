@@ -15,6 +15,7 @@
     Track *track = [Track new];
     track.trackID = dictionary[@"id"];
     track.userID = dictionary[@"user"][@"id"];
+    track.username = dictionary[@"user"][@"username"];
     track.artworkUrl = dictionary[@"artwork_url"];
     return track;
 }

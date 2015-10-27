@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSNumber *trackID;
 @property (nonatomic, strong) NSNumber *userID;
+@property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSString *artworkUrl;
 
 /**
