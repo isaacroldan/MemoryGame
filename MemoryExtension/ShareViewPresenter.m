@@ -27,6 +27,7 @@
 {
     self = [super init];
     self.viewController = controller;
+    self.tracks = @[];
     return self;
 }
 
@@ -88,18 +89,6 @@
 - (void)didFailToFindMatchAtIndex:(NSInteger)firstIndex and:(NSInteger)secondIndex
 {
     [self.viewController hideCellsAtIndex:firstIndex andIndex:secondIndex];
-}
-
-
-#pragma mark - Lazy
-
-- (NSArray *)tracks
-{
-    
-    if (!_tracks) {
-        _tracks = @[];
-    }
-    return _tracks;
 }
 
 @end

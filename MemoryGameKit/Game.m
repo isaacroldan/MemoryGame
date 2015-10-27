@@ -13,9 +13,7 @@
 @implementation Game
 
 + (id)gameWithItems:(NSArray *)items {
-    if (items.count < 8) {
-        return nil;
-    }
+    if (items.count < 8) { return nil; }
     Game *game = [Game new];
     NSArray *firstItems = [items subarrayWithRange:NSMakeRange(0, 8)];
     NSArray *fullArray = [firstItems arrayByAddingObjectsFromArray:firstItems];

@@ -21,6 +21,7 @@
 @property (nonatomic, strong) MBProgressHUD *loadingHud;
 @end
 
+
 @implementation ShareViewController
 
 - (void)viewDidLoad {
@@ -50,16 +51,22 @@
     self.artistName.text = artistName;
 }
 
-- (IBAction)closeGame:(id)sender
-{
-    [self.extensionContext completeRequestReturningItems:@[] completionHandler:nil];
-}
-
 - (void)setCollectionViewDataSource:(ShareViewCollectionViewDataSource *)dataSource
 {
     self.collectionView.dataSource = dataSource;
     self.collectionView.delegate = dataSource;
 }
+
+
+#pragma mark - Actions
+
+- (IBAction)closeGame:(id)sender
+{
+    [self.extensionContext completeRequestReturningItems:@[] completionHandler:nil];
+}
+
+
+#pragma mark - Cell interactions
 
 - (void)resetAllCells
 {

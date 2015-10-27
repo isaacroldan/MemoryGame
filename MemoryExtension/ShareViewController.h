@@ -17,7 +17,6 @@
 - (void)updateArtistName:(NSString *)artistName;
 - (void)reloadView;
 - (void)setCollectionViewDataSource:(ShareViewCollectionViewDataSource *)dataSource;
-
 - (void)resetAllCells;
 - (void)discoverCellsAtIndex:(NSInteger)firstIndex andIndex:(NSInteger)secondIndex;
 - (void)hideCellsAtIndex:(NSInteger)firstIndex andIndex:(NSInteger)secondIndex;
