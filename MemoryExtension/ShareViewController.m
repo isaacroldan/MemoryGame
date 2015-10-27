@@ -10,51 +10,28 @@
 #import "MemoryGameKit.h"
 #import "TrackCell.h"
 #import <MBProgressHUD/MBProgressHUD.h>
+#import "ShareViewPresenter.h"
+#import "ShareViewCollectionViewDataSource.h"
 
 
-@interface ShareViewController()  <UICollectionViewDataSource, UICollectionViewDelegate, GameControllerDelegate>
+@interface ShareViewController()  <GameControllerDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UILabel *artistName;
-@property (nonatomic, strong) GameController *gameController;
-@property (nonatomic, strong) NSArray *tracks;
-
+@property (nonatomic, strong) ShareViewPresenter *presenter;
+@property (nonatomic, strong) MBProgressHUD *loadingHud;
 @end
 
 @implementation ShareViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"received context: %@", self.extensionContext);
-    self.gameController = [GameController new];
-    self.gameController.delegate = self;
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.mode = MBProgressHUDModeText;
-    hud.labelText = @"Preparing your game...";
-    [self extractPermalinkwithCompletion:^(NSString *permalink) {
-        [self.gameController startGameWithPermalink:permalink completion:^(NSArray *items, NSError *error) {
-            [hud hide:YES];
-            if (error) {
-                [self showError:@"Invalid user or not enough tracks :("];
-                self.artistName.text = @"Choose another artist!";
-
-            }
-            else {
-                self.tracks = items;
-                [self.collectionView reloadData];
-                Track *first = [items firstObject];
-                self.artistName.text = [NSString stringWithFormat:@"%@ Memory Game!", first.username];
-            }
-        }];
-    }];
+    [self.presenter viewDidLoadWithContext:self.extensionContext];
+    self.loadingHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.loadingHud.mode = MBProgressHUDModeText;
+    self.loadingHud.labelText = @"Preparing your game...";
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-}
-
-- (void)showError:(NSString *)message
+- (void)showMessage:(NSString *)message
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeText;
@@ -62,17 +39,15 @@
     [hud performSelector:@selector(hide:) withObject:@YES afterDelay:3];
 }
 
-- (void)extractPermalinkwithCompletion:(void (^)(NSString *permalink))completion
+- (void)reloadView
 {
-    for (NSExtensionItem *object in self.extensionContext.inputItems) {
-        for (NSItemProvider *item in object.attachments) {
-            if ([item hasItemConformingToTypeIdentifier:@"public.url"]) {
-                [item loadItemForTypeIdentifier:@"public.url" options:nil completionHandler:^(NSURL *item, NSError * error) {
-                    completion(item.absoluteString);
-                }];
-            }
-        }
-    }
+    [self.loadingHud hide:YES];
+    [self.collectionView reloadData];
+}
+
+- (void)updateArtistName:(NSString *)artistName
+{
+    self.artistName.text = artistName;
 }
 
 - (IBAction)closeGame:(id)sender
@@ -80,23 +55,22 @@
     [self.extensionContext completeRequestReturningItems:@[] completionHandler:nil];
 }
 
-
-#pragma mark - GameController delegate
-
-- (void)didFinishGame
+- (void)setCollectionViewDataSource:(ShareViewCollectionViewDataSource *)dataSource
 {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.mode = MBProgressHUDModeText;
-    hud.labelText = @"Awesome!";
-    [hud performSelector:@selector(hide:) withObject:@YES afterDelay:2];
-    for (int i = 0; i<self.tracks.count; i++) {
+    self.collectionView.dataSource = dataSource;
+    self.collectionView.delegate = dataSource;
+}
+
+- (void)resetAllCells
+{
+    for (int i = 0; i<[self.collectionView numberOfItemsInSection:0]; i++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
         TrackCell *cell = (TrackCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
         [cell showBack];
     }
 }
 
-- (void)didFoundMatchAtIndex:(NSInteger)firstIndex and:(NSInteger)secondIndex
+- (void)discoverCellsAtIndex:(NSInteger)firstIndex andIndex:(NSInteger)secondIndex
 {
     TrackCell *firstCell = (TrackCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:firstIndex inSection:0]];
     TrackCell *secondCell = (TrackCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:secondIndex inSection:0]];
@@ -105,7 +79,7 @@
 }
 
 
-- (void)didFailToFindMatchAtIndex:(NSInteger)firstIndex and:(NSInteger)secondIndex
+- (void)hideCellsAtIndex:(NSInteger)firstIndex andIndex:(NSInteger)secondIndex
 {
     TrackCell *firstCell = (TrackCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:firstIndex inSection:0]];
     TrackCell *secondCell = (TrackCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:secondIndex inSection:0]];
@@ -114,44 +88,15 @@
 }
 
 
+#pragma mark - Lazys
 
-#pragma mark - UICollectionViewDataSource
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+- (ShareViewPresenter *)presenter
 {
-    return 16;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    TrackCell *cell = (TrackCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    if (self.tracks.count == 0) {
-        [cell configureWithImageURL:nil];
+    if (!_presenter) {
+        _presenter = [[ShareViewPresenter alloc] initWithView:self];
     }
-    else {
-        Track *track = self.tracks[indexPath.row];
-        [cell configureWithImageURL:track.artworkUrl];
-    }
-    return cell;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    TrackCell *cell = (TrackCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    if (self.tracks.count == 0) { return; }
-    if ([self.gameController canSelectItemAtIndex:indexPath.row]) {
-        [cell flip];
-        [self.gameController selectItemAtIndex:indexPath.row];
-    }
-}
-
-- (NSArray *)tracks
-{
-    
-    if (!_tracks) {
-        _tracks = @[];
-    }
-    return _tracks;
+    return _presenter;
 }
 
 

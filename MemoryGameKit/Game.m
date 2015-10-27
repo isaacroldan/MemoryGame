@@ -23,4 +23,9 @@
     return game;
 }
 
+- (void)reshuffle
+{
+    self.items = [NSArray shuffleArray:self.items];
+}
+
 @end

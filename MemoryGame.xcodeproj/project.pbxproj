@@ -22,7 +22,6 @@
 		6A0192EA1BDBD18200F05770 /* Track.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A0192E81BDBD18200F05770 /* Track.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6A0192EB1BDBD18200F05770 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0192E91BDBD18200F05770 /* Track.m */; };
 		6A0192EC1BDBDF5300F05770 /* MemoryGameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0192C01BDBB8E800F05770 /* MemoryGameKit.framework */; };
-		6A0192ED1BDBE28900F05770 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0192DF1BDBC7E300F05770 /* ReactiveCocoa.framework */; };
 		6A513EBA1BDBB85400C396CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A513EB91BDBB85400C396CC /* main.m */; };
 		6A513EBD1BDBB85400C396CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A513EBC1BDBB85400C396CC /* AppDelegate.m */; };
 		6A513EC01BDBB85400C396CC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A513EBF1BDBB85400C396CC /* ViewController.m */; };
@@ -35,6 +34,9 @@
 		6A5246851BDE88CE00E24551 /* WebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5246841BDE88CE00E24551 /* WebImage.framework */; };
 		6A5246881BDEFB5A00E24551 /* Expecta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5246861BDEFB5A00E24551 /* Expecta.framework */; };
 		6A5246891BDEFB5A00E24551 /* Specta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5246871BDEFB5A00E24551 /* Specta.framework */; };
+		6A52468B1BDF0B0700E24551 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0192DF1BDBC7E300F05770 /* ReactiveCocoa.framework */; };
+		6A52468E1BDF0B6200E24551 /* ShareViewCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A52468D1BDF0B6200E24551 /* ShareViewCollectionViewDataSource.m */; };
+		6A5246911BDF0B8900E24551 /* ShareViewPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5246901BDF0B8900E24551 /* ShareViewPresenter.m */; };
 		6A896E751BDC09B9009F0E92 /* TrackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A896E741BDC09B9009F0E92 /* TrackCell.m */; };
 		6A896E781BDC1FFA009F0E92 /* Game.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A896E761BDC1FFA009F0E92 /* Game.h */; };
 		6A896E791BDC1FFA009F0E92 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A896E771BDC1FFA009F0E92 /* Game.m */; };
@@ -132,6 +134,10 @@
 		6A5246841BDE88CE00E24551 /* WebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebImage.framework; path = ../Carthage/Build/iOS/WebImage.framework; sourceTree = "<group>"; };
 		6A5246861BDEFB5A00E24551 /* Expecta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Expecta.framework; path = ../Carthage/Build/iOS/Expecta.framework; sourceTree = "<group>"; };
 		6A5246871BDEFB5A00E24551 /* Specta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Specta.framework; path = ../Carthage/Build/iOS/Specta.framework; sourceTree = "<group>"; };
+		6A52468C1BDF0B6200E24551 /* ShareViewCollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewCollectionViewDataSource.h; sourceTree = "<group>"; };
+		6A52468D1BDF0B6200E24551 /* ShareViewCollectionViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewCollectionViewDataSource.m; sourceTree = "<group>"; };
+		6A52468F1BDF0B8900E24551 /* ShareViewPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewPresenter.h; sourceTree = "<group>"; };
+		6A5246901BDF0B8900E24551 /* ShareViewPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewPresenter.m; sourceTree = "<group>"; };
 		6A896E731BDC09B9009F0E92 /* TrackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackCell.h; sourceTree = "<group>"; };
 		6A896E741BDC09B9009F0E92 /* TrackCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackCell.m; sourceTree = "<group>"; };
 		6A896E761BDC1FFA009F0E92 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
@@ -147,8 +153,8 @@
 			files = (
 				6A5246851BDE88CE00E24551 /* WebImage.framework in Frameworks */,
 				6A0192EC1BDBDF5300F05770 /* MemoryGameKit.framework in Frameworks */,
-				6A0192ED1BDBE28900F05770 /* ReactiveCocoa.framework in Frameworks */,
 				6A5246831BDE81A400E24551 /* MBProgressHUD.framework in Frameworks */,
+				6A52468B1BDF0B0700E24551 /* ReactiveCocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,10 +192,16 @@
 			children = (
 				6A0192AD1BDBB8C900F05770 /* ShareViewController.h */,
 				6A0192AE1BDBB8C900F05770 /* ShareViewController.m */,
+				6A52468F1BDF0B8900E24551 /* ShareViewPresenter.h */,
+				6A5246901BDF0B8900E24551 /* ShareViewPresenter.m */,
+				6A52468C1BDF0B6200E24551 /* ShareViewCollectionViewDataSource.h */,
+				6A52468D1BDF0B6200E24551 /* ShareViewCollectionViewDataSource.m */,
 				6A896E731BDC09B9009F0E92 /* TrackCell.h */,
 				6A896E741BDC09B9009F0E92 /* TrackCell.m */,
 				6A0192B01BDBB8C900F05770 /* MainInterface.storyboard */,
 				6A0192B31BDBB8C900F05770 /* Info.plist */,
+				6A5246841BDE88CE00E24551 /* WebImage.framework */,
+				6A5246821BDE81A400E24551 /* MBProgressHUD.framework */,
 			);
 			path = MemoryExtension;
 			sourceTree = "<group>";
@@ -208,11 +220,7 @@
 				6A52467D1BDC3D1D00E24551 /* NSArray+Randomize.m */,
 				6A0192F31BDBEB8500F05770 /* Models */,
 				6A0192DF1BDBC7E300F05770 /* ReactiveCocoa.framework */,
-				6A5246841BDE88CE00E24551 /* WebImage.framework */,
-				6A5246821BDE81A400E24551 /* MBProgressHUD.framework */,
 				6A0192C41BDBB8E800F05770 /* Info.plist */,
-				6A5246861BDEFB5A00E24551 /* Expecta.framework */,
-				6A5246871BDEFB5A00E24551 /* Specta.framework */,
 			);
 			path = MemoryGameKit;
 			sourceTree = "<group>";
@@ -221,6 +229,8 @@
 			isa = PBXGroup;
 			children = (
 				6A0192D01BDBB8E800F05770 /* MemoryGameKitTests.m */,
+				6A5246861BDEFB5A00E24551 /* Expecta.framework */,
+				6A5246871BDEFB5A00E24551 /* Specta.framework */,
 				6A0192D21BDBB8E800F05770 /* Info.plist */,
 			);
 			path = MemoryGameKitTests;
@@ -514,6 +524,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A0192AF1BDBB8C900F05770 /* ShareViewController.m in Sources */,
+				6A5246911BDF0B8900E24551 /* ShareViewPresenter.m in Sources */,
+				6A52468E1BDF0B6200E24551 /* ShareViewCollectionViewDataSource.m in Sources */,
 				6A896E751BDC09B9009F0E92 /* TrackCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

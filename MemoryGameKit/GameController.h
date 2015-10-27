@@ -77,4 +77,5 @@
  - @return YES if the object can be selected
  */
 - (BOOL)canSelectItemAtIndex:(NSInteger)index;
+- (NSArray *)restart;
 @end

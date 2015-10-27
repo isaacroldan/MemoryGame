@@ -8,7 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import <Social/Social.h>
+#import <Foundation/Foundation.h>
+
+@class ShareViewCollectionViewDataSource;
 
 @interface ShareViewController : UIViewController
+- (void)showMessage:(NSString *)message;
+- (void)updateArtistName:(NSString *)artistName;
+- (void)reloadView;
+- (void)setCollectionViewDataSource:(ShareViewCollectionViewDataSource *)dataSource;
+
+- (void)resetAllCells;
+- (void)discoverCellsAtIndex:(NSInteger)firstIndex andIndex:(NSInteger)secondIndex;
+- (void)hideCellsAtIndex:(NSInteger)firstIndex andIndex:(NSInteger)secondIndex;
 
 @end

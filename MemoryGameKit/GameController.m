@@ -14,7 +14,6 @@
 
 @interface GameController()
 @property (nonatomic, assign) NSInteger selectedIndex;
-@property (nonatomic, assign) NSMutableArray *matches;
 @property (nonatomic, strong) NSMutableDictionary *matchesDict;
 @property (nonatomic, strong) Game *currentGame;
 @end
@@ -85,6 +84,14 @@
         self.selectedIndex = index;
     }
     return;
+}
+
+- (NSArray *)restart
+{
+    self.selectedIndex = -1;
+    self.matchesDict = [NSMutableDictionary new];
+    [self.currentGame reshuffle];
+    return self.currentGame.items;
 }
 
 
