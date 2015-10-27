@@ -64,12 +64,6 @@
     }
 }
 
-- (BOOL)isContentValid
-{
-    return YES;
-}
-
-
 - (IBAction)closeGame:(id)sender
 {
     [self.extensionContext completeRequestReturningItems:@[] completionHandler:nil];
@@ -84,10 +78,10 @@
     hud.mode = MBProgressHUDModeText;
     hud.labelText = @"Awesome!";
     [hud performSelector:@selector(hide:) withObject:@YES afterDelay:2];
-    for (int i = 0; i>self.tracks.count; i++) {
+    for (int i = 0; i<self.tracks.count; i++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
         TrackCell *cell = (TrackCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
-        [cell flip];
+        [cell showBack];
     }
 }
 
@@ -134,13 +128,15 @@
 {
     TrackCell *cell = (TrackCell *)[collectionView cellForItemAtIndexPath:indexPath];
     if (self.tracks.count == 0) { return; }
-    if ([self.gameController selectItemAtIndex:indexPath.row]) {
+    if ([self.gameController canSelectItemAtIndex:indexPath.row]) {
         [cell flip];
+        [self.gameController selectItemAtIndex:indexPath.row];
     }
 }
 
 - (NSArray *)tracks
 {
+    
     if (!_tracks) {
         _tracks = @[];
     }
