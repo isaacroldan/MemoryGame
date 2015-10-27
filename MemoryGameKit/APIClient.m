@@ -44,6 +44,13 @@
     }];
 }
 
+/**
+ Generic method to GET soemeting from a url encapsulated in a RACSignal
+ 
+ - @param url NSURL where the method should do the GET request
+ 
+ - @return RACSignal that encapsulates the network operation
+ */
 + (RACSignal *)fetchFromURL:(NSURL *)url
 {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {

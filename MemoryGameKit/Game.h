@@ -10,5 +10,17 @@
 
 @interface Game : NSObject
 @property (nonatomic, strong) NSArray *items;
+
+/**
+ A Game is just a collection of tracks
+ Use this method to create a new Game given an array of tracks.
+ If the array has less than 8 objects, the Game won´t be created.
+ 
+ The Game will always take the first 8 objects, duplicate and shuffle them.
+ 
+ - @param tracks NSArray of Track objects
+ 
+ - @return an Instance of Game
+ */
 + (id)gameWithItems:(NSArray *)tracks;
 @end

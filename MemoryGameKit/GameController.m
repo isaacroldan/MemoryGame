@@ -60,16 +60,10 @@
     return ([self.matchesDict objectForKey:@(index)] == nil);
 }
 
-/**
- Select the item at the given index and detect if there is a match or not. 
- Calls the delegate according to the matches or fails detected.
- 
- Returns a BOOL, indicating wether the item can be selected or not.
- */
-- (BOOL)selectItemAtIndex:(NSInteger)index
+- (void)selectItemAtIndex:(NSInteger)index
 {
-    if (index >= self.currentGame.items.count) { return NO; }
-    if (![self canSelectItemAtIndex:index]) { return NO; }
+    if (index >= self.currentGame.items.count) { return; }
+    if (![self canSelectItemAtIndex:index]) { return; }
     Track *newTrack = self.currentGame.items[index];
     
     if (self.selectedIndex > -1 && index != self.selectedIndex) {
@@ -90,7 +84,7 @@
     else {
         self.selectedIndex = index;
     }
-    return YES;
+    return;
 }
 
 

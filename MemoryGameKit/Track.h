@@ -14,6 +14,9 @@
 @property (nonatomic, strong) NSNumber *userID;
 @property (nonatomic, strong) NSString *artworkUrl;
 
+/**
+ Init a Track objects with a NSDictionary
+ */
 + (id)trackWithDictionary:(NSDictionary *)dictionary;
 
 @end

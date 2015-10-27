@@ -9,5 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface NSArray (Randomize)
+
+/**
+ Given an array, return a new array with the same objects of the first one but shuffled.
+ 
+ - @param array NSArray to shuffle
+ 
+ - @return new NSArray with the shuffled objects
+ */
 + (NSArray *)shuffleArray:(NSArray *)array;
 @end
