@@ -21,5 +21,4 @@
 - (void)resetAllCells;
 - (void)discoverCellsAtIndex:(NSInteger)firstIndex andIndex:(NSInteger)secondIndex;
 - (void)hideCellsAtIndex:(NSInteger)firstIndex andIndex:(NSInteger)secondIndex;
-
 @end

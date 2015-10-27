@@ -23,5 +23,9 @@
  - @return an Instance of Game
  */
 + (id)gameWithItems:(NSArray *)tracks;
+
+/**
+ Reshuffle the existing elements
+ */
 - (void)reshuffle;
 @end

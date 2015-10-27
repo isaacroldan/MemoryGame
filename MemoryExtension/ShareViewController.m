@@ -14,7 +14,7 @@
 #import "ShareViewCollectionViewDataSource.h"
 
 
-@interface ShareViewController()  <GameControllerDelegate>
+@interface ShareViewController()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UILabel *artistName;
 @property (nonatomic, strong) ShareViewPresenter *presenter;

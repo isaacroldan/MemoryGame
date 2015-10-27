@@ -152,6 +152,21 @@ describe(@"GameController", ^{
         });
     });
     
+    describe(@"restart", ^{
+        __block GameController *controller;
+        beforeEach(^{
+            controller = getController();
+        });
+        context(@"", ^{
+            it(@"selected index is reseted", ^{
+                expect(controller.selectedIndex).to.equal(-1);
+            });
+            it(@"the matches dictionary is empty", ^{
+                expect(controller.matchesDict.allKeys.count).to.equal(0);
+            });
+        });
+    });
+    
 });
 
 SpecEnd

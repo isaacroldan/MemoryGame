@@ -77,5 +77,9 @@
  - @return YES if the object can be selected
  */
 - (BOOL)canSelectItemAtIndex:(NSInteger)index;
+
+/**
+ Resets the state of the controller for a new game and reshuffles the elements of the Game
+*/
 - (NSArray *)restart;
 @end
